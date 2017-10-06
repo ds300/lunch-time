@@ -26,14 +26,14 @@ class Results extends React.Component<{
   renderUnhappyUserReport = ({ name, canEat, canDrink }: UserVenueReport) =>
     `${name} doesn't like the ${!canEat && !canDrink
       ? "food or the drink :("
-      : !canEat ? "food." : "drink."}`
+      : !canEat ? "food." : "drinks."}`
 
   render() {
     return (
       <div className="Results">
         {this.safeVenueNames.length > 0 && (
           <div>
-            <h1>Go here</h1>
+            <h1>These are good</h1>
             <ul>
               {this.safeVenueNames.map((name, index) => (
                 <li key={index}>{name}</li>
@@ -43,7 +43,7 @@ class Results extends React.Component<{
         )}
         {this.unsafeVenues.length > 0 && (
           <div>
-            <h1>Avoid here</h1>
+            <h1>Avoid these</h1>
             <ul>
               {this.unsafeVenues.map(
                 ({ venueName, unhappyUserReports }, index) => (

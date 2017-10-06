@@ -80,7 +80,6 @@ class App extends React.Component {
           <div>loading...</div>
         ) : (
           <div>
-            <h1>
               {this.selectingUsers && this.users ? (
                 <SelectUsers
                   users={this.users}
@@ -95,7 +94,6 @@ class App extends React.Component {
                 <Results results={this.results} onGoBack={this.onSelectUsers} />
                 )
               )}
-            </h1>
           </div>
         )}
       </div>

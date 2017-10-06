@@ -3,25 +3,37 @@ body {
   padding: 0;
   font-family: sans-serif;
   background: papayawhip;
+  color: #444;
 }
 
 button {
+  margin-top: 50px;
   display: block;
   cursor: pointer;
   border: none;
-  font-size: 40px;
+  font-size: 2em;
   color: white;
   font-weight: 500;
   background-color: #d45055;
   width: 400px;
+  border-bottom: 8px solid #c44045
 }
 
 button:hover {
   background-color: #d67057;
+  border-bottom-color: #d45055;
 }
 
 button:disabled {
   background-color: #b98789;
+  border-bottom-color: #a97779;
   color: #dfc8c9;
   cursor: not-allowed;
+}
+
+h1 {
+  font-size: 4em;
+  color: white;
+  background: #444;
+  padding: 0 10px;
 }

@@ -62,9 +62,7 @@ class Results extends React.Component<{
             </ul>
           </div>
         )}
-        <button onClick={this.props.onGoBack}>
-          &laquo;&laquo; change people
-        </button>
+        <button onClick={this.props.onGoBack}>Choose different peeps</button>
       </div>
     )
   }

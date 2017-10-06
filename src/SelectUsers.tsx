@@ -45,7 +45,7 @@ class SelectUsers extends React.Component<{
           })}
         </ul>
         <button disabled={!canViewResults} onClick={onViewResults}>
-          That's all of us
+          Show options
         </button>
       </div>
     )

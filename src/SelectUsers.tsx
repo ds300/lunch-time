@@ -34,6 +34,9 @@ class SelectUsers extends React.Component<{
                 key={index}
                 className={selected ? "active" : ""}
                 onClick={onClick.bind(null, user)}
+                onKeyPress={onClick.bind(null, user)}
+                tabIndex={0}
+                role="button"
               >
                 {user.name}
                 {selected ? " is coming!" : ""}

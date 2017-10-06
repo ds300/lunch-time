@@ -31,7 +31,7 @@ class Results extends React.Component<{
   render() {
     return (
       <div className="Results">
-        {this.safeVenueNames.length && (
+        {this.safeVenueNames.length > 0 && (
           <div>
             <h1>Go here</h1>
             <ul>
@@ -41,7 +41,7 @@ class Results extends React.Component<{
             </ul>
           </div>
         )}
-        {this.unsafeVenues.length && (
+        {this.unsafeVenues.length > 0 && (
           <div>
             <h1>Avoid here</h1>
             <ul>

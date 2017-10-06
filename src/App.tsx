@@ -92,10 +92,7 @@ class App extends React.Component {
                 />
               ) : (
                 this.results && (
-                  <Results
-                    results={this.results}
-                    onGoBack={this.onSelectUsers}
-                  />
+                <Results results={this.results} onGoBack={this.onSelectUsers} />
                 )
               )}
             </h1>

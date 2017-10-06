@@ -6,6 +6,7 @@ import { User, Venue, getVenueReports } from "./domain"
 import { processUsers, processVenues } from "./data"
 import SelectUsers from "./SelectUsers"
 import Results from "./Results"
+import { sortBy } from "lodash-es"
 
 @observer
 class App extends React.Component {
@@ -39,7 +40,7 @@ class App extends React.Component {
       .then(res => res.json())
       .then(processUsers)
       .then(users => {
-        this.users = users
+        this.users = sortBy(users, "name")
       })
       .catch(() => {
         this.error = true
@@ -48,7 +49,7 @@ class App extends React.Component {
       .then(res => res.json())
       .then(processVenues)
       .then(venues => {
-        this.venues = venues
+        this.venues = sortBy(venues, "name")
       })
       .catch(() => {
         this.error = true
@@ -80,20 +81,20 @@ class App extends React.Component {
           <div>loading...</div>
         ) : (
           <div>
-              {this.selectingUsers && this.users ? (
-                <SelectUsers
-                  users={this.users}
-                  selectedUsers={this.selectedUsers}
-                  onSelectUser={this.onSelectUser}
-                  onDeselectUser={this.onDeselectUser}
-                  onViewResults={this.onViewResults}
-                  canViewResults={this.canViewReults}
-                />
-              ) : (
-                this.results && (
+            {this.selectingUsers && this.users ? (
+              <SelectUsers
+                users={this.users}
+                selectedUsers={this.selectedUsers}
+                onSelectUser={this.onSelectUser}
+                onDeselectUser={this.onDeselectUser}
+                onViewResults={this.onViewResults}
+                canViewResults={this.canViewReults}
+              />
+            ) : (
+              this.results && (
                 <Results results={this.results} onGoBack={this.onSelectUsers} />
-                )
-              )}
+              )
+            )}
           </div>
         )}
       </div>

@@ -1,0 +1,23 @@
+.SelectUsers {
+  position: relative;
+}
+.SelectUsers ul {
+  list-style-type: none;
+  margin-bottom: 60px;
+}
+
+.SelectUsers li {
+  cursor: pointer;
+  border-left: 10px solid transparent;
+  padding-left: 10px;
+}
+
+.SelectUsers li.active {
+  color: #d45055;
+  border-left-color: #d45055;
+}
+
+.SelectUsers li:hover {
+  cursor: pointer;
+  border-left-color: black;
+}

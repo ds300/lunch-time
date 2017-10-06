@@ -4,6 +4,8 @@ import { observable, computed } from "mobx"
 import "./App.css"
 import { User, Venue, getVenueReports } from "./domain"
 import { processUsers, processVenues } from "./data"
+import SelectUsers from "./SelectUsers"
+import Results from "./Results"
 
 @observer
 class App extends React.Component {
@@ -23,7 +25,7 @@ class App extends React.Component {
   }
 
   @computed
-  get canShowResults(): boolean {
+  get canViewReults(): boolean {
     return this.selectedUsers.length > 0
   }
 
@@ -53,6 +55,22 @@ class App extends React.Component {
       })
   }
 
+  onSelectUser = (user: User) => {
+    this.selectedUsers.push(user)
+  }
+
+  onDeselectUser = (user: User) => {
+    this.selectedUsers.splice(this.selectedUsers.indexOf(user), 1)
+  }
+
+  onViewResults = () => {
+    this.selectingUsers = false
+  }
+
+  onSelectUsers = () => {
+    this.selectingUsers = true
+  }
+
   render() {
     return (
       <div className="App">
@@ -62,16 +80,25 @@ class App extends React.Component {
           <div>loading...</div>
         ) : (
           <div>
-            <button
-              onClick={() => {
-                if (this.users) {
-                  this.selectedUsers = this.users
-                }
-              }}
-            >
-              click me
-            </button>
-            <div>{JSON.stringify(this.results)}</div>
+            <h1>
+              {this.selectingUsers && this.users ? (
+                <SelectUsers
+                  users={this.users}
+                  selectedUsers={this.selectedUsers}
+                  onSelectUser={this.onSelectUser}
+                  onDeselectUser={this.onDeselectUser}
+                  onViewResults={this.onViewResults}
+                  canViewResults={this.canViewReults}
+                />
+              ) : (
+                this.results && (
+                  <Results
+                    results={this.results}
+                    onGoBack={this.onSelectUsers}
+                  />
+                )
+              )}
+            </h1>
           </div>
         )}
       </div>

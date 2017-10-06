@@ -19,7 +19,12 @@
   border-left-color: #d45055;
 }
 
+.SelectUsers li:focus {
+  border-left-color: #444;
+  outline: none;
+}
+
 .SelectUsers li:hover {
   cursor: pointer;
-  border-left-color: black;
+  border-left-color: #444;
 }

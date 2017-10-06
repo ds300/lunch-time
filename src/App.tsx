@@ -8,6 +8,11 @@ import SelectUsers from "./SelectUsers"
 import Results from "./Results"
 import { sortBy } from "lodash-es"
 
+// using ES6 modules
+import createHistory from "history/createBrowserHistory"
+
+const history = createHistory()
+
 @observer
 class App extends React.Component {
   @observable users: User[] | null = null
@@ -35,7 +40,13 @@ class App extends React.Component {
     return this.venues && getVenueReports(this.selectedUsers, this.venues)
   }
 
+  unlisten: () => void
+
   componentDidMount() {
+    this.unlisten = history.listen(location => {
+      this.selectingUsers = location.pathname !== "/results"
+    })
+
     fetch("./users.json")
       .then(res => res.json())
       .then(processUsers)
@@ -45,6 +56,7 @@ class App extends React.Component {
       .catch(() => {
         this.error = true
       })
+
     fetch("./venues.json")
       .then(res => res.json())
       .then(processVenues)
@@ -66,10 +78,12 @@ class App extends React.Component {
 
   onViewResults = () => {
     this.selectingUsers = false
+    history.push("/results")
   }
 
   onSelectUsers = () => {
     this.selectingUsers = true
+    history.push("/")
   }
 
   render() {

@@ -27,4 +27,8 @@
   .Results li li {
     font-weight: 300;
   }
+
+  .Results li ul {
+    margin-bottom: 3vw;
+  }
 }

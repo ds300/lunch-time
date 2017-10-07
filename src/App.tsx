@@ -47,7 +47,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.unlisten = history.listen(location => {
-      this.selectingUsers = !location.pathname.endsWith("/results")
+      this.selectingUsers = !location.hash.endsWith("results")
     })
 
     fetch("./users.json")
@@ -81,7 +81,7 @@ class App extends React.Component {
 
   onViewResults = () => {
     this.selectingUsers = false
-    history.push(publicUrl + "/results")
+    history.push(publicUrl + "#results")
   }
 
   onSelectUsers = () => {

@@ -11,6 +11,9 @@ import { sortBy } from "lodash-es"
 // using ES6 modules
 import createHistory from "history/createBrowserHistory"
 
+declare const process: any
+
+const publicUrl = process.env.PUBLIC_URL
 const history = createHistory()
 
 @observer
@@ -44,7 +47,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.unlisten = history.listen(location => {
-      this.selectingUsers = location.pathname !== "/results"
+      this.selectingUsers = !location.pathname.endsWith("/results")
     })
 
     fetch("./users.json")
@@ -78,12 +81,12 @@ class App extends React.Component {
 
   onViewResults = () => {
     this.selectingUsers = false
-    history.push("/results")
+    history.push(publicUrl + "/results")
   }
 
   onSelectUsers = () => {
     this.selectingUsers = true
-    history.push("/")
+    history.push(publicUrl)
   }
 
   render() {

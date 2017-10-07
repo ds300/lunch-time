@@ -28,3 +28,26 @@
   cursor: pointer;
   border-left-color: #444;
 }
+
+@media (max-width: 600px) {
+  .SelectUsers ul {
+    padding-left: 5vw;
+  }
+
+  .SelectUsers li {
+    font-size: 5vw;
+    padding: 2.5vw;
+    padding-left: 5vw;
+  }
+
+  /* disable keyboard control visual feedback for mobile */
+  .SelectUsers li,
+  .SelectUsers li:focus,
+  .SelectUsers li:hover {
+    border-left-color: transparent;
+  }
+
+  .SelectUsers li.active {
+    border-left-color: #d45055;
+  }
+}

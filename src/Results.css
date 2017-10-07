@@ -17,3 +17,14 @@
   font-weight: 200;
   margin-bottom: 0px;
 }
+
+@media (max-width: 600px) {
+  .Results ul {
+    padding-left: 5vw;
+    margin-bottom: 8vw;
+  }
+
+  .Results li li {
+    font-weight: 300;
+  }
+}

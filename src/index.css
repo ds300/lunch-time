@@ -16,7 +16,7 @@ button {
   font-weight: 500;
   background-color: #d45055;
   width: 400px;
-  border-bottom: 8px solid #c44045
+  border-bottom: 8px solid #c44045;
 }
 
 button:hover {
@@ -36,4 +36,19 @@ h1 {
   color: white;
   background: #444;
   padding: 0 10px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    margin-top: 0;
+    padding: 3vw 0;
+    font-size: 8vw;
+  }
+
+  button {
+    margin-top: 8vw;
+    padding: 2vw 0;
+    width: 100vw;
+  }
 }

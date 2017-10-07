@@ -1,6 +1,7 @@
 {
   "name": "lunch-time",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@types/history": "^4.6.0",

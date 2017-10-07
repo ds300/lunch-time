@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "homepage": ".",
   "private": true,
+  "license": "BSD-3-Clause",
   "dependencies": {
     "@types/history": "^4.6.0",
     "@types/jest": "^21.1.2",

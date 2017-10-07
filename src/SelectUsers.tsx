@@ -33,7 +33,11 @@ class SelectUsers extends React.Component<{
               <li
                 key={index}
                 className={selected ? "active" : ""}
-                onClick={onClick.bind(null, user)}
+                onMouseDown={ev => {
+                  // prevent focus from changing when clicking
+                  ev.preventDefault()
+                }}
+                onMouseUp={onClick.bind(null, user)}
                 onKeyPress={onClick.bind(null, user)}
                 tabIndex={0}
                 role="button"
